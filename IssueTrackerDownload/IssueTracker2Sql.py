@@ -20,7 +20,7 @@ def get_cmdline_args():
     parser.add_argument('--port', help = 'The port on which your MySQL database is available. Defalut Value = 3306', default = 3306)
     parser.add_argument('--database', choices = ['chrome', 'android'], help = 'Name of the MySQL database', required=True)
     parser.add_argument('--meta', choices = ['issues', 'comments'], help = 'Meta-data you would want to download : issues OR comments.', required = True)
-    group.add_argument('--range',metavar=('START', 'END'), nargs = 2, type= int, help = 'Start Issue ID of the Issue Tracker to be downloaded.')
+    group.add_argument('--range',metavar=('START', 'END'), nargs = 2, type= int, help = 'You can specify a range of contiguous issue IDs you want to download.')
     group.add_argument('--file', metavar = 'FILENAME', type=argparse.FileType('r'), help = 'Text File containing a list of Issue IDs, one per line.')
     #parser.print_help()
     #parser.print_usage()
