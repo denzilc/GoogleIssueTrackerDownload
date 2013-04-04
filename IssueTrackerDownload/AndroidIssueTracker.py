@@ -1,6 +1,5 @@
 import urllib2
 import json
-import MySQLdb as mysql
 import unicodedata
 import time
 

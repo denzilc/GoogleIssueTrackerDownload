@@ -1,13 +1,11 @@
-import MySQL
-import time
+from MySQL import MySQL
+
 import urllib2
 import json
 import unicodedata
 from datetime import datetime
-from time import gmtime, strftime
 import time
 
-from MySQL import MySQL
 
 ''' This class defines all the required methods and data for Chromium Issue Tracker download. '''
 class ChromiumIssueTracker() :
@@ -815,6 +813,7 @@ class ChromiumIssueTracker() :
             
                 print issue_id, action
     
+                M = MySQL(mysql_host, mysql_username, mysql_password, mysql_database, mysql_port)
                 connection, cursor = M.create_connection() 
                 result = cursor.execute(self.insertIssueQuery,(issue_id, title, state, content, stars, owner, blocking, blockedOn, updated, status, closedDate, mergedInto, cc, author, published, bugtype, priority, pri, os, area, feature, mstone, releaseBlock, regression, performance, cleanup, polish, usability, crash, security, secSeverity, webkit, hotlist, internals, sev, secImpacts, notLabel, action, num_comments))
                 M.close_connection(cursor, connection)
