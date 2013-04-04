@@ -1,4 +1,4 @@
-GoogleIssueTrackerDownload
+Google Issue Tracker Download Tool
 ==========================
 
 GoogleIssueTrackerDownload is straight forward to use. It downloads the issues from the Issue Tracker into your 
