@@ -5,13 +5,25 @@ GoogleIssueTrackerDownload is straight forward to use. It downloads the issues f
 local MySQL database. 
 
 **Pre-Requisites**
-+ Python 2.7.3
++ Python 2.7.3 (will mostly work on other versions, please report if it doesnot work on other versions)
 + argparse
 + mysqldb
 + urllib2
 
+**Features**
++ Takes input from command line as well as files
++ Takes MySQL parameters as command line input
++ Downloads all available information from the Issue Tracker Systems
++ SQL scripts to generate `Chromium` and `Android` issue tracking systems schemas(more support coming soon)
++ Tolerant to Internet Connectivity issues viz. issues not downloaded due to Internet are stored in a file which can later be given as an input 
++ Separates haphazardly available information into neat RDBMS For ex. Chrome does not make readily available the 
+"Type of Bug" (regression, stability crash etc.) but available in our tool.
 
 **Usage**
+
+Before using the tool you need to have the database present in the target machine. The SQL scripts to generate the databases are provided in the
+repository viz. `chromium_schema.sql` and `android_schema.sql`. Please run these SQL scripts to generate the databases and then run the command-line
+tool.
 
 Type `python IssueTracker2Sql.py -h` on your command line for help. 
 
