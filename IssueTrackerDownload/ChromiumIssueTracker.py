@@ -9,7 +9,7 @@ import time
 
 ''' This class defines all the required methods and data for Chromium Issue Tracker download. '''
 class ChromiumIssueTracker() :
-    insertCommentsQuery = """ INSERT INTO comments(issue_id, comment_id, published, updated, title, content, author, issue_status, owner_update) VALUES (%s,%s,%s,%s, %s,%s,%s,%s)"""
+    insertCommentsQuery = """ INSERT INTO comments(issue_id, comment_id, published, updated, title, content, author, issue_status, owner_update) VALUES (%s,%s,%s,%s, %s,%s,%s,%s,%s)"""
     insertIssueQuery = ''' INSERT INTO `issues`
     (`issue_id`,
     `title`,
