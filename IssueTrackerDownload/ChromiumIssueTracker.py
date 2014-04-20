@@ -9,7 +9,7 @@ import time
 
 ''' This class defines all the required methods and data for Chromium Issue Tracker download. '''
 class ChromiumIssueTracker() :
-    insertCommentsQuery = """ INSERT INTO comments(issue_id, comment_id, published, updated, title, content, author, issue_status) VALUES (%s,%s,%s,%s, %s,%s,%s,%s)"""
+    insertCommentsQuery = """ INSERT INTO comments(issue_id, comment_id, published, updated, title, content, author, issue_status, owner_update) VALUES (%s,%s,%s,%s, %s,%s,%s,%s)"""
     insertIssueQuery = ''' INSERT INTO `issues`
     (`issue_id`,
     `title`,
@@ -494,6 +494,12 @@ class ChromiumIssueTracker() :
                             #print issue_status
                         except :
                             issue_status = None
+                            
+                        try :
+                            owner_update = comment_entry['issues$updates']['issues$ownerUpdate']['$t']
+                            #print owner_update
+                        except :
+                            owner_update = None
                         
                     
                         try :
@@ -501,7 +507,7 @@ class ChromiumIssueTracker() :
                             M = MySQL(mysql_host, mysql_username, mysql_password, mysql_database, mysql_port)
                             #print M.host, M.username, M.passwd, M.db, M.port
                             connection, cursor = M.create_connection() 
-                            result = cursor.execute(self.insertCommentsQuery, (issue_id, comment_id, published, updated, title, content, author, issue_status))
+                            result = cursor.execute(self.insertCommentsQuery, (issue_id, comment_id, published, updated, title, content, author, issue_status, owner_update))
                             M.close_connection(cursor, connection)
                         
                         except Exception, e:
@@ -620,6 +626,8 @@ class ChromiumIssueTracker() :
                     status = None
                     #print 'Status not found ' + str(id)
                     pass
+                
+                
 
 
                 try:
@@ -900,6 +908,12 @@ class ChromiumIssueTracker() :
                             #print issue_status
                         except :
                             issue_status = None
+                            
+                             try :
+                            owner_update = comment_entry['issues$updates']['issues$ownerUpdate']['$t']
+                            #print owner_update
+                        except :
+                            owner_update = None
                         
                     
                         try :
@@ -907,7 +921,7 @@ class ChromiumIssueTracker() :
                             M = MySQL(mysql_host, mysql_username, mysql_password, mysql_database, mysql_port)
                             #print M.host, M.username, M.passwd, M.db, M.port
                             connection, cursor = M.create_connection() 
-                            result = cursor.execute(self.insertCommentsQuery, (issue_id, comment_id, published, updated, title, content, author, issue_status))
+                            result = cursor.execute(self.insertCommentsQuery, (issue_id, comment_id, published, updated, title, content, author, issue_status, owner_update))
                             M.close_connection(cursor, connection)
                         
                         except Exception, e:
