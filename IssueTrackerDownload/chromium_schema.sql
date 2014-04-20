@@ -31,7 +31,7 @@ CREATE TABLE `issues` (
   `performance` tinyint(4) DEFAULT NULL,
   `cleanup` tinyint(4) DEFAULT NULL,
   `polish` tinyint(4) DEFAULT NULL,
-  `stability` tinyint(4) DEFAULT NULL,
+  `usability` tinyint(4) DEFAULT NULL,
   `crash` tinyint(4) DEFAULT NULL,
   `security` tinyint(4) DEFAULT NULL,
   `secSeverity` text,
@@ -57,6 +57,7 @@ CREATE TABLE `comments` (
   `content` longtext,
   `author` text,
   `issue_status` text,
+  `owner_update` text,
   PRIMARY KEY (`issue_id`,`comment_id`),
   KEY `issue_id` (`issue_id`),
   CONSTRAINT `issue_id` FOREIGN KEY (`issue_id`) REFERENCES `issues` (`issue_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
