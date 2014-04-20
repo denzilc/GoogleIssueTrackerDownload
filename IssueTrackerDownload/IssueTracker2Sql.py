@@ -47,7 +47,7 @@ if __name__ == "__main__":
   
 
     if vals['database'] == 'chrome':
-        mysql_database = 'chromium'
+        mysql_database = 'monikagc'
         print 'Welcome to Chromium Issue Tracker Download!'
 
         if vals['file'] is None:
