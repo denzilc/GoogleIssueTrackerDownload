@@ -1,6 +1,6 @@
-CREATE DATABASE `chromium`;
+CREATE DATABASE `monikagc`;
 
-USE chromium;
+USE monikagc;
 
 DROP TABLE IF EXISTS `issues`;
 CREATE TABLE `issues` (
